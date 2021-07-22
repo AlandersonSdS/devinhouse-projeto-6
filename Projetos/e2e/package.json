@@ -7,6 +7,9 @@
         "ajv": "^8.6.2"
     },
     "devDependencies": {
+        "@shelex/cypress-allure-plugin": "^2.8.6",
+        "allure-commandline": "^2.13.8",
+        "clean-dir": "^1.0.3",
         "cucumber": "^7.0.0-rc.0",
         "cypress": "^8.0.0",
         "cypress-cucumber-preprocessor": "^4.1.4",
@@ -14,7 +17,12 @@
         "gerador-validador-cpf": "^5.0.1"
     },
     "scripts": {
-        "test": "cypress run "
+        "test": "npm run cleandir && wdio",
+        "clear:report": "cleandir ./test-report/",
+        "allure:generate": "yarn allure generate --clean ./test-report/allure-results/ -o ./test-report/allure-report",
+        "allure:open": "allure open ./test-report/allure-report",
+        "cy:run": "cypress run --browser chrome --config video=false --env allure=true",
+        "test:run": "cypress run --browser chrome --config video=false"
     },
     "cypress-cucumber-preprocessor": {
         "step_definitions": "cypress/support/steps"

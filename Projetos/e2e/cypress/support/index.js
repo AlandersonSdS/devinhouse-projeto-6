@@ -14,6 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import '@shelex/cypress-allure-plugin';
 import './commands'
 import './requests/CRUDAssuntos.commands'
 import './requests/CRUDInteressado.commands'
@@ -21,3 +22,4 @@ import './requests/CRUDProcessos.commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+require('@shelex/cypress-allure-plugin');

@@ -9,5 +9,8 @@
         "openMode": 0
     },
     "video": false,
-    "chromeWebSecurity": false
+    "chromeWebSecurity": false,
+    "env": {
+        "allureResultsPath": "test-report/allure-results"
+    }
 }
