@@ -39,3 +39,7 @@ Then(/^deve ser salvo a requisição no banco de novo Processo$/, () => {
 Then(/^deve retornar o Processo com os dados atualizados de novo Processo$/, () => {
     crudProcessosPage.validoUpdateProcessoCriado()
 })
+
+Then(/^ele deve estar com a descrição atualizada na base$/, () => {
+    crudProcessosPage.validoAtualizacaoDaDescricao()
+})

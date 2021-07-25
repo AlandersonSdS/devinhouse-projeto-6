@@ -18,6 +18,9 @@ import './commands'
 import './requests/CRUDAssuntos.commands'
 import './requests/CRUDInteressado.commands'
 import './requests/CRUDProcessos.commands'
+import { homePages } from './pages/Home.pages'
+import "cypress-keycloak-commands";
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+beforeEach(() => {
+    cy.kcLogout()
+});

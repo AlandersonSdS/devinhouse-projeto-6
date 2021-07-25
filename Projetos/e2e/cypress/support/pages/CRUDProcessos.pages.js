@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
 const criar_Processo_schema = require('../schema/criar_processo.schema.json')
+const dados = require('../../fixtures/Processos.json')
 
 var todosProcessos = ""
 var novoProcessos = ""
@@ -54,6 +55,10 @@ class CRUDProcessos {
 
     validoDeleteProcessoCriado() {
         expect(deleteProcessosCriado.status).to.be.eq(204)
+    }
+
+    validoAtualizacaoDaDescricao() {
+        expect(buscaProcessosCriado.descricao).to.contain(dados.descricao_update_processo)
     }
 }
 

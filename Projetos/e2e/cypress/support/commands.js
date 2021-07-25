@@ -1,6 +1,7 @@
 const token = require('../fixtures/token.json')
 import { generate } from 'gerador-validador-cpf'
-
+import { loginPage } from './pages/login.pages'
+const acessos = require('../fixtures/acessos.json')
 
 Cypress.Commands.add('schema_validator', (schema, response) => {
     const Ajv = require("ajv")
@@ -35,4 +36,11 @@ Cypress.Commands.add('token', () => {
 Cypress.Commands.add('gerar_cpf', () => {
     var cpf = generate({ format: true }) // Gera um CPF no formato 000.000.000-00
     Cypress.env('CPF', cpf)
+})
+
+Cypress.Commands.add('fazer_login', () => {
+    cy.visit('')
+    loginPage.inserirUsuario(acessos.user)
+    loginPage.inserirSenha(acessos.senha)
+    loginPage.fazerLogin()
 })

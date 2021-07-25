@@ -1,9 +1,10 @@
 const processo = require('../../fixtures/Processos.json')
+const url = require('../../fixtures/url.json')
 
 Cypress.Commands.add('processos', () => {
     cy.request({
         method: 'GET',
-        url: '/processos',
+        url: `${url.baseAPIUrl}/processos`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -16,7 +17,7 @@ Cypress.Commands.add('processos', () => {
 Cypress.Commands.add('processos_id', () => {
     cy.request({
         method: 'GET',
-        url: `/processos/${Cypress.env('id_processo_criado')}`,
+        url: `${url.baseAPIUrl}/processos/${Cypress.env('id_processo_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -31,7 +32,7 @@ Cypress.Commands.add('processos_id', () => {
 Cypress.Commands.add('criar_processo', () => {
     cy.request({
         method: 'POST',
-        url: `/processos`,
+        url: `${url.baseAPIUrl}/processos`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -54,7 +55,7 @@ Cypress.Commands.add('criar_processo', () => {
 Cypress.Commands.add('update_processo', () => {
     cy.request({
         method: 'PUT',
-        url: `/processos/${Cypress.env('id_processo_criado')}`,
+        url: `${url.baseAPIUrl}/processos/${Cypress.env('id_processo_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -72,7 +73,7 @@ Cypress.Commands.add('update_processo', () => {
 Cypress.Commands.add('delete_processo', () => {
     cy.request({
         method: 'DELETE',
-        url: `/processos/${Cypress.env('id_processo_criado')}`,
+        url: `${url.baseAPIUrl}/processos/${Cypress.env('id_processo_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
