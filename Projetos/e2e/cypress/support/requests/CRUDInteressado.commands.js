@@ -1,9 +1,10 @@
 const interessado = require('../../fixtures/Interessado.json')
+const url = require('../../fixtures/url.json')
 
 Cypress.Commands.add('interessado', () => {
     cy.request({
         method: 'GET',
-        url: '/interessados',
+        url: `${url.baseAPIUrl}/interessados`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -16,7 +17,7 @@ Cypress.Commands.add('interessado', () => {
 Cypress.Commands.add('criar_interessado', () => {
     cy.request({
         method: 'POST',
-        url: `/interessados`,
+        url: `${url.baseAPIUrl}/interessados`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -37,7 +38,7 @@ Cypress.Commands.add('criar_interessado', () => {
 Cypress.Commands.add('update_interessado', () => {
     cy.request({
         method: 'PUT',
-        url: `/interessados/${Cypress.env('id_Interessado_criado')}`,
+        url: `${url.baseAPIUrl}/interessados/${Cypress.env('id_Interessado_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -55,7 +56,7 @@ Cypress.Commands.add('update_interessado', () => {
 Cypress.Commands.add('delete_interessado', () => {
     cy.request({
         method: 'DELETE',
-        url: `/interessados/${Cypress.env('id_Interessado_criado')}`,
+        url: `${url.baseAPIUrl}/interessados/${Cypress.env('id_Interessado_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,

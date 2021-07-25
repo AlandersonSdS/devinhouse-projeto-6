@@ -1,9 +1,10 @@
 const assunto = require('../../fixtures/Assuntos.json')
+const url = require('../../fixtures/url.json')
 
 Cypress.Commands.add('assuntos', () => {
     cy.request({
         method: 'GET',
-        url: '/assuntos',
+        url: `${url.baseAPIUrl}/assuntos`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -17,7 +18,7 @@ Cypress.Commands.add('assuntos', () => {
 Cypress.Commands.add('assuntos_id', () => {
     cy.request({
         method: 'GET',
-        url: `/assuntos/${Cypress.env('id_assunto_criado')}`,
+        url: `${url.baseAPIUrl}/assuntos/${Cypress.env('id_assunto_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -32,7 +33,7 @@ Cypress.Commands.add('assuntos_id', () => {
 Cypress.Commands.add('criar_assunto', () => {
     cy.request({
         method: 'POST',
-        url: `/assuntos`,
+        url: `${url.baseAPIUrl}/assuntos`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -51,7 +52,7 @@ Cypress.Commands.add('criar_assunto', () => {
 Cypress.Commands.add('update_assunto', () => {
     cy.request({
         method: 'PUT',
-        url: `/assuntos/${Cypress.env('id_assunto_criado')}`,
+        url: `${url.baseAPIUrl}/assuntos/${Cypress.env('id_assunto_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
@@ -69,7 +70,7 @@ Cypress.Commands.add('update_assunto', () => {
 Cypress.Commands.add('delete_assunto', () => {
     cy.request({
         method: 'DELETE',
-        url: `/assuntos/${Cypress.env('id_assunto_criado')}`,
+        url: `${url.baseAPIUrl}/assuntos/${Cypress.env('id_assunto_criado')}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${Cypress.env('token')}`,
